@@ -13,7 +13,7 @@ class Group(models.Model):
     def __str__(self) -> str:
         return self.title
 
-
+ 
 class Post(models.Model):
     text = models.TextField()
     pub_date = models.DateTimeField(auto_now_add=True)
@@ -29,6 +29,10 @@ class Post(models.Model):
         on_delete=models.SET_NULL,
         related_name='posts'
     )
+
+    def __str__(self) -> str:
+        # выводим текст поста 
+        return self.text 
 
     class Meta:
         ordering = ('-pub_date',)
